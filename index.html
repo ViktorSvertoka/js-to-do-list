@@ -11,6 +11,7 @@
   <body>
     <div class="todo">
       <div class="todo__wrapper">
+        <h1 class="todo__title">Do it now!</h1>
         <div class="todo__header">
           <nav class="todo__nav">
             <ul class="todo__filter-list">
@@ -43,13 +44,15 @@
             <option class="todo__option" value="Medium">Medium</option>
             <option class="todo__option" value="High">High</option>
           </select>
-          <input
-            class="todo__input"
-            type="text"
-            name="description"
-            placeholder="Enter a task description"
-          />
-          <button class="todo__submit-btn" type="submit">Add Task</button>
+          <div class="todo__wrap">
+            <input
+              class="todo__input"
+              type="text"
+              name="description"
+              placeholder="Enter a task description"
+            />
+            <button class="todo__submit-btn" type="submit">Add Task</button>
+          </div>
         </form>
         <ul class="todo__list"></ul>
         <div class="todo__modal">

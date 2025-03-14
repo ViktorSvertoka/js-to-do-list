@@ -74,6 +74,19 @@ button {
   justify-content: flex-start;
 }
 
+.todo__title {
+  font-size: 60px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .todo__title {
+    font-size: 80px;
+    margin: 50px 0;
+  }
+}
+
 .todo__header {
   display: flex;
   align-items: center;
@@ -135,8 +148,12 @@ button {
   }
 }
 
+.todo__wrap {
+  display: flex;
+}
+
 .todo__input {
-  width: 100%;
+  width: 80%;
   height: 40px;
   border-radius: 10px;
   padding-left: 10px;
@@ -146,6 +163,19 @@ button {
 
 .todo__input:focus {
   border-color: var(--primary-color);
+}
+
+.todo__submit-btn {
+  width: 20%;
+  height: 40px;
+  border-radius: 10px;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  box-shadow: var(--box-shadow);
+}
+
+.todo__submit-btn:hover {
+  background-color: var(--hover-color);
 }
 
 .todo__select {
@@ -159,18 +189,6 @@ button {
 
 .todo__select:hover {
   border-color: var(--primary-color);
-}
-
-.todo__submit-btn {
-  height: 40px;
-  border-radius: 10px;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-  box-shadow: var(--box-shadow);
-}
-
-.todo__submit-btn:hover {
-  background-color: var(--hover-color);
 }
 
 .todo__list {
