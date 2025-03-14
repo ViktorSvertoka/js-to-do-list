@@ -1,13 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>To Do</title>
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./src/style.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <div class="todo">
+      <div class="todo__wrapper">
+        <div class="todo__header">
+          <nav class="todo__nav">
+            <ul class="todo__filter-list">
+              <li class="todo__filter-item">
+                <button class="todo__filter-btn" type="button">All</button>
+              </li>
+              <li class="todo__filter-item">
+                <button class="todo__filter-btn" type="button">
+                  In progress
+                </button>
+              </li>
+              <li class="todo__filter-item">
+                <button class="todo__filter-btn" type="button">Done</button>
+              </li>
+              <li class="todo__filter-item">
+                <button class="todo__filter-btn" type="button">Low</button>
+              </li>
+              <li class="todo__filter-item">
+                <button class="todo__filter-btn" type="button">Medium</button>
+              </li>
+              <li class="todo__filter-item">
+                <button class="todo__filter-btn" type="button">High</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <form class="todo__form" action="">
+          <select class="todo__select" name="priority">
+            <option class="todo__option" value="Low">Low</option>
+            <option class="todo__option" value="Medium">Medium</option>
+            <option class="todo__option" value="High">High</option>
+          </select>
+          <input
+            class="todo__input"
+            type="text"
+            name="description"
+            placeholder="Enter a task description"
+          />
+          <button class="todo__submit-btn" type="submit">Add Task</button>
+        </form>
+        <ul class="todo__list"></ul>
+        <div class="todo__modal">
+          <div class="todo__modal-content">
+            <span class="todo__modal-close">&times;</span>
+            <form class="todo__modal-form">
+              <label for="editDescription">Description:</label>
+              <input
+                class="todo__modal-desc"
+                type="text"
+                id="editDescription"
+                name="description"
+                required
+              />
+              <label for="editPriority">Priority:</label>
+              <select
+                class="todo__modal-priority"
+                id="editPriority"
+                name="priority"
+              >
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+              </select>
+              <button type="submit">Update Task</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./src/index.js" type="module"></script>
   </body>
 </html>
