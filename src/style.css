@@ -153,25 +153,35 @@ button {
 }
 
 .todo__input {
-  width: 80%;
+  width: 70%;
   height: 40px;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
   padding-left: 10px;
   border: 2px solid var(--neutral-color);
   transition: border-color 0.3s ease-in-out;
+  outline: none;
+  cursor: pointer;
 }
 
+.todo__input:hover,
 .todo__input:focus {
   border-color: var(--primary-color);
 }
 
 .todo__submit-btn {
-  width: 20%;
+  width: 30%;
   height: 40px;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   color: var(--white-color);
   background-color: var(--primary-color);
-  box-shadow: var(--box-shadow);
+  padding: 0 20px;
+  border-left: none;
 }
 
 .todo__submit-btn:hover {
@@ -312,7 +322,7 @@ button {
 
 .todo__modal-content {
   position: fixed;
-  width: 300px;
+  width: 600px;
   height: 200px;
   background-color: var(--white-color);
   padding: 20px;
@@ -322,6 +332,7 @@ button {
 .todo__modal-form {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
 
 .todo__modal-close {
@@ -330,4 +341,59 @@ button {
   right: 10px;
   font-size: 24px;
   color: var(--text-color-dark);
+  cursor: pointer;
+}
+
+.todo__modal-priority {
+  height: 40px;
+  border-radius: 10px;
+  padding: 10px;
+  border: 2px solid var(--neutral-color);
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.todo__modal-priority:hover {
+  border-color: var(--primary-color);
+}
+
+.todo__modal-desc {
+  width: 70%;
+  height: 40px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-left: 10px;
+  border: 2px solid var(--neutral-color);
+  transition: border-color 0.3s ease-in-out;
+  outline: none;
+  cursor: pointer;
+}
+
+.todo__modal-desc:hover,
+.todo__modal-desc:focus {
+  border-color: var(--primary-color);
+}
+
+.todo__modal-btn {
+  width: 30%;
+  height: 40px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  padding: 0 20px;
+  border-left: none;
+}
+
+.todo__modal-btn:hover {
+  background-color: var(--hover-color);
+}
+
+.todo__modal-wrap {
+  display: flex;
 }

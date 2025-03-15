@@ -59,14 +59,6 @@
           <div class="todo__modal-content">
             <span class="todo__modal-close">&times;</span>
             <form class="todo__modal-form">
-              <label for="editDescription">Description:</label>
-              <input
-                class="todo__modal-desc"
-                type="text"
-                id="editDescription"
-                name="description"
-                required
-              />
               <label for="editPriority">Priority:</label>
               <select
                 class="todo__modal-priority"
@@ -77,7 +69,19 @@
                 <option value="Medium">Medium</option>
                 <option value="High">High</option>
               </select>
-              <button type="submit">Update Task</button>
+              <label for="editDescription">Description:</label>
+              <div class="todo__modal-wrap">
+                <input
+                  class="todo__modal-desc"
+                  type="text"
+                  id="editDescription"
+                  name="description"
+                  required
+                />
+                <button class="todo__modal-btn" type="submit">
+                  Update Task
+                </button>
+              </div>
             </form>
           </div>
         </div>
