@@ -41,11 +41,13 @@ function createMarkup(taskObj) {
 // Функція для відображення завдань
 function displayTasks(filter = "All") {
   const tasks = getTasksFromLocalStorage();
+  const normalizedFilter = filter.trim(); // Видаляємо зайві пробіли
+
   const filteredTasks = tasks.filter((task) => {
-    if (filter === "All") return true;
-    if (filter === "In progress") return !task.done;
-    if (filter === "Done") return task.done;
-    return task.priority === filter;
+    if (normalizedFilter === "All") return true;
+    if (normalizedFilter === "In progress") return task.done === false;
+    if (normalizedFilter === "Done") return task.done === true;
+    return task.priority === normalizedFilter;
   });
 
   list.innerHTML = ""; // Очищаємо список перед оновленням
@@ -72,6 +74,17 @@ function removeTask(taskId) {
   const updatedTasks = tasks.filter((task) => task.id !== parseInt(taskId));
   setTasksInLocalStorage(updatedTasks);
   displayTasks();
+}
+
+// Функція для скидання статусу виконаного завдання
+function resetTaskStatus(taskId) {
+  const tasks = getTasksFromLocalStorage();
+  const taskIndex = tasks.findIndex((task) => task.id == taskId);
+  if (taskIndex !== -1) {
+    tasks[taskIndex].done = false;
+    setTasksInLocalStorage(tasks);
+    displayTasks();
+  }
 }
 
 // Обробник події відправки форми
@@ -115,6 +128,22 @@ list.addEventListener("click", (event) => {
   if (event.target.classList.contains("todo__remove-btn")) {
     removeTask(taskId);
   }
+
+  if (event.target.classList.contains("todo__edit-btn")) {
+    const tasks = getTasksFromLocalStorage();
+    const task = tasks.find((task) => task.id == taskId);
+
+    if (task) {
+      document.querySelector(".todo__modal-desc").value = task.description;
+      document.querySelector(".todo__modal-priority").value = task.priority;
+      currentTaskId = taskId;
+
+      // Скидаємо статус виконаного завдання та показуємо кнопку "Done"
+      resetTaskStatus(taskId);
+
+      editModal.style.display = "flex"; // Відкриваємо модальне вікно
+    }
+  }
 });
 
 // Обробник події для кнопок фільтрації
@@ -131,35 +160,6 @@ const editModal = document.querySelector(".todo__modal");
 const closeModal = document.querySelector(".todo__modal-close");
 const editForm = document.querySelector(".todo__modal-form");
 let currentTaskId = null;
-
-// Відкриваємо модальне вікно для редагування завдання
-list.addEventListener("click", (event) => {
-  const listItem = event.target.closest(".todo__item");
-  if (!listItem) return;
-
-  const taskId = listItem.dataset.taskId;
-
-  if (event.target.classList.contains("todo__edit-btn")) {
-    const tasks = getTasksFromLocalStorage();
-    const task = tasks.find((task) => task.id == taskId);
-
-    if (task) {
-      document.querySelector(".todo__modal-desc").value = task.description;
-      document.querySelector(".todo__modal-priority").value = task.priority;
-      currentTaskId = taskId;
-
-      editModal.style.display = "flex"; // Відкриваємо модальне вікно
-    }
-  }
-
-  if (event.target.classList.contains("todo__done-btn")) {
-    markTaskAsDone(taskId);
-  }
-
-  if (event.target.classList.contains("todo__remove-btn")) {
-    removeTask(taskId);
-  }
-});
 
 // Закриваємо модальне вікно
 closeModal.addEventListener("click", () => {
