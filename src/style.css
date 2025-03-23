@@ -74,6 +74,14 @@ button {
   justify-content: flex-start;
 }
 
+.todo__box {
+  text-align: center;
+}
+
+.todo__logo {
+  width: 150px;
+}
+
 .todo__title {
   font-size: 60px;
   text-align: center;
