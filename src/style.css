@@ -83,15 +83,28 @@ button {
 }
 
 .todo__title {
-  font-size: 60px;
+  font-size: 40px;
   text-align: center;
-  margin: 30px 0;
+  margin: 10px 0;
 }
 
 @media screen and (min-width: 768px) {
   .todo__title {
-    font-size: 80px;
-    margin: 50px 0;
+    font-size: 60px;
+    margin: 10px 0;
+  }
+}
+
+.todo__slogan {
+  font-size: 18px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .todo__slogan {
+    font-size: 24px;
+    margin: 20px 0;
   }
 }
 
