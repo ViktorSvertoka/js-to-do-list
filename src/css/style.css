@@ -4,13 +4,12 @@
   --bg-items: #4e4e5c;
   --bg-inputs: #2e2d33;
   --text-color: #fbfafb;
-
+  --accent-green: #5eb190;
+  --accent-yellow: #c4c572;
+  --accent-red: #b5615b;
   --font-primary: "Helvetica Neue", sans-serif;
-
   --box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
-
-  --box-shadow-btn: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  --box-shadow-btn: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 @font-face {
@@ -157,12 +156,13 @@ button {
   height: 40px;
   border-radius: 3px;
   background-color: var(--bg-items);
+  transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
   padding: 0 20px;
 }
 
 .todo__filter-btn:hover {
-  background-color: var(--hover-color);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  background-color: var(--bg-inputs);
+  box-shadow: var(--box-shadow-btn);
 }
 
 .todo__form {
@@ -304,29 +304,35 @@ button {
 .todo__description {
   font-size: 20px;
   font-weight: 600;
+  color: var(--text-color);
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .todo__priority {
   position: absolute;
-  top: -18px;
+  top: -16px;
   left: 10px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--text-color-light);
+}
+
+.todo__priority--green {
+  color: var(--accent-green);
+}
+
+.todo__priority--yellow {
+  color: var(--accent-yellow);
+}
+
+.todo__priority--red {
+  color: var(--accent-red);
 }
 
 .todo__text--done {
   text-decoration: line-through;
-}
-
-.todo__item--hidden {
-  display: none;
-}
-
-.todo__item--bg-green {
-  background-color: greenyellow;
+  text-decoration-color: var(--bg-items);
+  text-decoration-thickness: 3px;
 }
 
 .todo__group {
