@@ -1,3 +1,7 @@
+import doneLogo from "./images/check.svg";
+import editLogo from "./images/pause.svg";
+import removeLogo from "./images/cross.svg";
+
 // Отримуємо посилання на елементи
 const form = document.querySelector(".todo__form");
 const list = document.querySelector(".todo__list");
@@ -29,9 +33,9 @@ function createMarkup(taskObj) {
         </span>
       </div>
       <div class="todo__actions">
-        <img class="todo__svg done" src="./src/images/check.svg" alt="Check button" />
-        <img class="todo__svg edit" src="./src/images/pause.svg" alt="Pause button" />
-        <img class="todo__svg remove" src="./src/images/cross.svg" alt="Cross button" />
+        <img class="todo__svg done" src="${doneLogo}" alt="Check button" />
+        <img class="todo__svg edit" src="${editLogo}" alt="Pause button" />
+        <img class="todo__svg remove" src="${removeLogo}" alt="Cross button" />
       </div>
     </li>`;
 }
