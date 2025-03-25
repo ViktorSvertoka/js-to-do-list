@@ -152,6 +152,8 @@ button {
 }
 
 .todo__filter-btn {
+  font-size: 18px;
+  font-weight: 600;
   height: 40px;
   border-radius: 3px;
   background-color: var(--bg-items);
@@ -196,6 +198,12 @@ button {
   transform: translateY(-50%);
   pointer-events: none;
   z-index: 1;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.todo__select-wrapper:hover::after {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 0.7;
 }
 
 .todo__select {
@@ -246,6 +254,12 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.todo__submit-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 0.7;
 }
 
 .todo__list {
@@ -257,6 +271,7 @@ button {
 }
 
 .todo__item {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
@@ -276,7 +291,14 @@ button {
 
 .todo__svg {
   height: 40px;
-  padding: 10px 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.todo__svg:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
 }
 
 .todo__description {
@@ -287,10 +309,12 @@ button {
 }
 
 .todo__priority {
-  font-size: 20px;
+  position: absolute;
+  top: -18px;
+  left: 10px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-color-light);
-  padding-left: 10px;
 }
 
 .todo__text--done {
