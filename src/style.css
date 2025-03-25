@@ -2,6 +2,7 @@
   --bg-color: #2e2d33;
   --bg-app: #403f4d;
   --bg-items: #4e4e5c;
+  --bg-inputs: #2e2d33;
   --text-color: #fbfafb;
 
   --font-primary: "Helvetica Neue", sans-serif;
@@ -215,17 +216,40 @@ button {
   background-color: var(--hover-color);
 }
 
-.todo__select {
-  height: 40px;
-  border-radius: 10px;
-  padding: 10px;
-  border: 2px solid var(--neutral-color);
-  cursor: pointer;
-  transition: border-color 0.3s ease-in-out;
+.todo__select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
 }
 
-.todo__select:hover {
-  border-color: var(--primary-color);
+.todo__select-wrapper::after {
+  content: "▼";
+  font-size: 24px;
+  color: var(--text-color);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.todo__select {
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: border-color 0.3s ease-in-out;
+  color: var(--text-color);
+  background-color: var(--bg-inputs);
+  padding-right: 50px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .todo__list {
