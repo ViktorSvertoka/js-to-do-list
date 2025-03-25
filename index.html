@@ -56,13 +56,21 @@
               </select>
             </div>
             <div class="todo__wrap">
-              <input
-                class="todo__input"
-                type="text"
-                name="description"
-                placeholder="Enter a task description"
-              />
-              <button class="todo__submit-btn" type="submit">Add Task</button>
+              <div class="todo__input-wrapper">
+                <input
+                  class="todo__input"
+                  type="text"
+                  name="description"
+                  placeholder="Enter a task description"
+                />
+                <button class="todo__submit-btn" type="submit">
+                  <img
+                    class="todo__btn-svg"
+                    src="./src/images/plus.svg"
+                    alt="Plus logo"
+                  />
+                </button>
+              </div>
             </div>
           </form>
           <ul class="todo__list"></ul>
