@@ -1,13 +1,7 @@
 :root {
-  --primary-color: #00bcff;
-  --hover-color: #59a5e2;
-  --danger-color: #f34336;
-  --neutral-color: #cccccc;
-  --bg-color-light: #e3e3e3;
-  --bg-color-green: #88dac4;
-  --text-color-light: #8e8e8e;
-  --text-color-dark: #333;
-  --white-color: #ffffff;
+  --bg-color: #2e2d33;
+  --bg-app: #403f4d;
+  --text-color: #fbfafb;
 
   --font-primary: "Helvetica Neue", sans-serif;
 
@@ -50,12 +44,15 @@ html {
 
 body {
   font-family: var(--font-primary);
+  font-weight: 400;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   padding: 20px;
 }
 
 button {
   font-family: var(--font-primary);
-  font-weight: 700;
+  font-weight: 400;
   cursor: pointer;
   background: none;
   border: none;
@@ -84,6 +81,7 @@ button {
 
 .todo__title {
   font-size: 40px;
+  font-weight: 400;
   text-align: center;
   margin: 10px 0;
 }
@@ -97,6 +95,7 @@ button {
 
 .todo__slogan {
   font-size: 18px;
+  font-weight: 400;
   text-align: center;
   margin: 10px 0;
 }
