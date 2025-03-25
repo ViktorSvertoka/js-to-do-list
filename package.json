@@ -12,6 +12,7 @@
     "vite": "^6.2.0"
   },
   "dependencies": {
-    "izitoast": "^1.4.0"
+    "izitoast": "^1.4.0",
+    "vite-plugin-html-inject": "^1.1.2"
   }
 }
