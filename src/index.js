@@ -29,9 +29,9 @@ function createMarkup(taskObj) {
         </span>
       </div>
       <div class="todo__actions">
-        <img class="todo__svg done" src="/check.svg" alt="Check button" />
-        <img class="todo__svg edit" src="/pause.svg" alt="Pause button" />
-        <img class="todo__svg remove" src="/cross.svg" alt="Cross button" />
+        <img class="todo__svg done" src="./src/images/check.svg" alt="Check button" />
+        <img class="todo__svg edit" src="./src/images/pause.svg" alt="Pause button" />
+        <img class="todo__svg remove" src="./src/images/cross.svg" alt="Cross button" />
       </div>
     </li>`;
 }
