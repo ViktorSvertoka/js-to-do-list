@@ -16,49 +16,51 @@
           <h1 class="todo__title">ProTask</h1>
           <p class="todo__slogan">Stay organized, stay productive.</p>
         </div>
-        <div class="todo__header">
-          <nav class="todo__nav">
-            <ul class="todo__filter-list">
-              <li class="todo__filter-item">
-                <button class="todo__filter-btn" type="button">All</button>
-              </li>
-              <li class="todo__filter-item">
-                <button class="todo__filter-btn" type="button">
-                  In progress
-                </button>
-              </li>
-              <li class="todo__filter-item">
-                <button class="todo__filter-btn" type="button">Done</button>
-              </li>
-              <li class="todo__filter-item">
-                <button class="todo__filter-btn" type="button">Low</button>
-              </li>
-              <li class="todo__filter-item">
-                <button class="todo__filter-btn" type="button">Medium</button>
-              </li>
-              <li class="todo__filter-item">
-                <button class="todo__filter-btn" type="button">High</button>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <form class="todo__form" action="">
-          <select class="todo__select" name="priority">
-            <option class="todo__option" value="Low">Low</option>
-            <option class="todo__option" value="Medium">Medium</option>
-            <option class="todo__option" value="High">High</option>
-          </select>
-          <div class="todo__wrap">
-            <input
-              class="todo__input"
-              type="text"
-              name="description"
-              placeholder="Enter a task description"
-            />
-            <button class="todo__submit-btn" type="submit">Add Task</button>
+        <div class="todo__container">
+          <div class="todo__header">
+            <nav class="todo__nav">
+              <ul class="todo__filter-list">
+                <li class="todo__filter-item">
+                  <button class="todo__filter-btn" type="button">All</button>
+                </li>
+                <li class="todo__filter-item">
+                  <button class="todo__filter-btn" type="button">
+                    In progress
+                  </button>
+                </li>
+                <li class="todo__filter-item">
+                  <button class="todo__filter-btn" type="button">Done</button>
+                </li>
+                <li class="todo__filter-item">
+                  <button class="todo__filter-btn" type="button">Low</button>
+                </li>
+                <li class="todo__filter-item">
+                  <button class="todo__filter-btn" type="button">Medium</button>
+                </li>
+                <li class="todo__filter-item">
+                  <button class="todo__filter-btn" type="button">High</button>
+                </li>
+              </ul>
+            </nav>
           </div>
-        </form>
-        <ul class="todo__list"></ul>
+          <form class="todo__form" action="">
+            <select class="todo__select" name="priority">
+              <option class="todo__option" value="Low">Low</option>
+              <option class="todo__option" value="Medium">Medium</option>
+              <option class="todo__option" value="High">High</option>
+            </select>
+            <div class="todo__wrap">
+              <input
+                class="todo__input"
+                type="text"
+                name="description"
+                placeholder="Enter a task description"
+              />
+              <button class="todo__submit-btn" type="submit">Add Task</button>
+            </div>
+          </form>
+          <ul class="todo__list"></ul>
+        </div>
         <div class="todo__modal">
           <div class="todo__modal-content">
             <span class="todo__modal-close">&times;</span>

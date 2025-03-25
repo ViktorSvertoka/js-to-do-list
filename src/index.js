@@ -29,11 +29,9 @@ function createMarkup(taskObj) {
         </span>
       </div>
       <div class="todo__actions">
-        <button class="todo__done-btn ${
-          done ? "todo__item--hidden" : ""
-        }" type="button">Done</button>
-        <button class="todo__remove-btn" type="button">Remove</button>
-        <button class="todo__edit-btn" type="button">Edit</button>
+        <img class="todo__svg done" src="./public/check.svg" alt="Check button" />
+        <img class="todo__svg edit" src="./public/pause.svg" alt="Pause button" />
+        <img class="todo__svg remove" src="./public/cross.svg" alt="Cross button" />
       </div>
     </li>`;
 }
@@ -121,15 +119,15 @@ list.addEventListener("click", (event) => {
 
   const taskId = listItem.dataset.taskId;
 
-  if (event.target.classList.contains("todo__done-btn")) {
+  if (event.target.classList.contains("done")) {
     markTaskAsDone(taskId);
   }
 
-  if (event.target.classList.contains("todo__remove-btn")) {
+  if (event.target.classList.contains("remove")) {
     removeTask(taskId);
   }
 
-  if (event.target.classList.contains("todo__edit-btn")) {
+  if (event.target.classList.contains("edit")) {
     const tasks = getTasksFromLocalStorage();
     const task = tasks.find((task) => task.id == taskId);
 

@@ -1,12 +1,15 @@
 :root {
   --bg-color: #2e2d33;
   --bg-app: #403f4d;
+  --bg-items: #4e4e5c;
   --text-color: #fbfafb;
 
   --font-primary: "Helvetica Neue", sans-serif;
 
-  --box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-    0px 2px 2px rgba(0, 0, 0, 0.12);
+  --box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+  --box-shadow-btn: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 @font-face {
@@ -54,8 +57,8 @@ button {
   font-family: var(--font-primary);
   font-weight: 400;
   cursor: pointer;
-  background: none;
   border: none;
+  color: var(--text-color);
   transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
 }
 
@@ -107,6 +110,13 @@ button {
   }
 }
 
+.todo__container {
+  background-color: var(--bg-app);
+  padding: 60px;
+  box-shadow: var(--box-shadow);
+  border-radius: 5px;
+}
+
 .todo__header {
   display: flex;
   align-items: center;
@@ -131,7 +141,6 @@ button {
   gap: 10px;
   padding: 0;
   margin-bottom: 20px;
-  border-bottom: 2px solid var(--bg-color-light);
   padding-bottom: 20px;
 }
 
@@ -143,11 +152,9 @@ button {
 
 .todo__filter-btn {
   height: 40px;
-  border-radius: 10px;
-  color: var(--white-color);
-  background-color: var(--primary-color);
+  border-radius: 3px;
+  background-color: var(--bg-items);
   padding: 0 20px;
-  box-shadow: var(--box-shadow);
 }
 
 .todo__filter-btn:hover {
@@ -235,9 +242,9 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  border: 2px solid var(--neutral-color);
-  border-radius: 10px;
+  border-radius: 3px;
   padding: 10px;
+  background-color: var(--bg-items);
 }
 
 @media screen and (min-width: 768px) {
@@ -247,46 +254,9 @@ button {
   }
 }
 
-.todo__done-btn {
+.todo__svg {
   height: 40px;
-  border-radius: 10px;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-  padding: 10px 20px;
-  box-shadow: var(--box-shadow);
-  white-space: nowrap;
-}
-
-.todo__done-btn:hover {
-  background-color: #67eac2;
-}
-
-.todo__remove-btn {
-  height: 40px;
-  border-radius: 10px;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-  padding: 10px 20px;
-  box-shadow: var(--box-shadow);
-  white-space: nowrap;
-}
-
-.todo__remove-btn:hover {
-  background-color: #ec6a75;
-}
-
-.todo__edit-btn {
-  height: 40px;
-  border-radius: 10px;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-  padding: 10px 20px;
-  box-shadow: var(--box-shadow);
-  white-space: nowrap;
-}
-
-.todo__edit-btn:hover {
-  background-color: #566a79;
+  padding: 10px 10px;
 }
 
 .todo__description {
@@ -312,7 +282,7 @@ button {
 }
 
 .todo__item--bg-green {
-  background-color: var(--bg-color-green);
+  background-color: greenyellow;
 }
 
 .todo__group {
