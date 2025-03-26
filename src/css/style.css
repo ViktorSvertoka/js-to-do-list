@@ -364,7 +364,7 @@ button {
   position: fixed;
   width: 600px;
   height: 200px;
-  background-color: var(--white-color);
+  background-color: var(--bg-app);
   padding: 20px;
   border-radius: 5px;
 }
@@ -385,36 +385,31 @@ button {
 }
 
 .todo__modal-priority {
-  height: 40px;
-  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 100%;
+  border-radius: 3px;
+  border: none;
   padding: 10px;
-  border: 2px solid var(--neutral-color);
   cursor: pointer;
   transition: border-color 0.3s ease-in-out;
-  margin-bottom: 20px;
-}
-
-.todo__modal-priority:hover {
-  border-color: var(--primary-color);
+  color: var(--text-color);
+  background-color: var(--bg-inputs);
+  padding-right: 50px;
+  outline: none;
 }
 
 .todo__modal-desc {
-  width: 70%;
-  height: 40px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  padding-left: 10px;
-  border: 2px solid var(--neutral-color);
-  transition: border-color 0.3s ease-in-out;
-  outline: none;
-  cursor: pointer;
-}
-
-.todo__modal-desc:hover,
-.todo__modal-desc:focus {
-  border-color: var(--primary-color);
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  background-color: var(--bg-inputs);
+  color: var(--text-color);
+  padding: 10px 60px 10px 10px;
 }
 
 .todo__modal-btn {
