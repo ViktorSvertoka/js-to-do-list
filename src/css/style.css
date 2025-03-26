@@ -379,9 +379,32 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 24px;
-  color: var(--text-color-dark);
+  font-size: 32px;
   cursor: pointer;
+}
+
+.todo__modal-box {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.todo__modal-box::after {
+  content: "▼";
+  font-size: 24px;
+  color: var(--text-color);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.todo__modal-box:hover::after {
+  transform: translateY(-50%) scale(1.1);
+  opacity: 0.7;
 }
 
 .todo__modal-priority {
@@ -398,6 +421,9 @@ button {
   background-color: var(--bg-inputs);
   padding-right: 50px;
   outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .todo__modal-desc {
