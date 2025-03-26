@@ -4,7 +4,10 @@
 
 ```bash
 ├── .gitignore
+├── .prettierrc
+├── LICENSE
 ├── README.md
+├── SECURITY.md
 ├── index.html
 ├── package-lock.json
 ├── package.json
