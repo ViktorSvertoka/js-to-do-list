@@ -47,7 +47,7 @@ html {
 
 body {
   font-family: var(--font-primary);
-  font-weight: 400;
+  font-weight: 600;
   background-color: var(--bg-color);
   color: var(--text-color);
   padding: 20px;
@@ -55,7 +55,7 @@ body {
 
 button {
   font-family: var(--font-primary);
-  font-weight: 400;
+  font-weight: 600;
   cursor: pointer;
   border: none;
   color: var(--text-color);
@@ -152,7 +152,6 @@ button {
 
 .todo__filter-btn {
   font-size: 18px;
-  font-weight: 600;
   height: 40px;
   border-radius: 3px;
   background-color: var(--bg-items);
@@ -362,7 +361,7 @@ button {
 
 .todo__modal-content {
   position: fixed;
-  width: 600px;
+  width: 620px;
   height: 200px;
   background-color: var(--bg-app);
   padding: 20px;
@@ -373,11 +372,12 @@ button {
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  gap: 20px;
 }
 
 .todo__modal-close {
   position: absolute;
-  top: 10px;
+  top: -3px;
   right: 10px;
   font-size: 32px;
   cursor: pointer;
@@ -426,6 +426,10 @@ button {
   -moz-appearance: none;
 }
 
+.todo__modal-wrap {
+  display: flex;
+}
+
 .todo__modal-desc {
   font-size: 20px;
   font-weight: 600;
@@ -439,22 +443,20 @@ button {
 }
 
 .todo__modal-btn {
-  width: 30%;
+  position: absolute;
+  right: 32px;
+  top: 70%;
+  transform: translateY(-50%);
   height: 40px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  color: var(--white-color);
-  background-color: var(--primary-color);
-  padding: 0 20px;
+  width: 40px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   border-left: none;
 }
 
 .todo__modal-btn:hover {
-  background-color: var(--hover-color);
-}
-
-.todo__modal-wrap {
-  display: flex;
+  transform: translateY(-50%) scale(1.1);
+  opacity: 0.7;
 }
