@@ -541,7 +541,8 @@ button {
   border: 2px solid var(--text-color);
   position: relative;
   background: #171717;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 @media screen and (min-width: 768px) {
