@@ -99,12 +99,16 @@
         ├── check.svg
         ├── cross.svg
         ├── pause.svg
-        └── plus.svg
+        ├── plus.svg
+        └── weather.png
     └── js
+        ├── date.js
         ├── filters.js
         ├── main.js
         ├── markup.js
         ├── modal.js
+        ├── popup.js
         ├── storage.js
-        └── tasks.js
+        ├── tasks.js
+        └── weather.js
 ```
