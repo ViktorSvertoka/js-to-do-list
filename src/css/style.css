@@ -4,6 +4,7 @@
   --bg-items: #4e4e5c;
   --bg-inputs: #2e2d33;
   --text-color: #fbfafb;
+  --text-accent: #bdbcbc;
   --accent-green: #5eb190;
   --accent-yellow: #c4c572;
   --accent-red: #b5615b;
@@ -127,6 +128,39 @@ button {
   .todo__container {
     padding: 60px;
   }
+}
+
+.todo__date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.todo__year-box {
+  display: flex;
+  align-items: center;
+}
+
+.todo__day {
+  font-size: 48px;
+  margin-right: 8px;
+}
+
+.todo__month {
+  font-size: 20px;
+}
+
+.todo__year {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-accent);
+}
+
+.todo__week-day {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-accent);
 }
 
 .todo__header {
