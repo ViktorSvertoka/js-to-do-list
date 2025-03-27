@@ -536,13 +536,13 @@ button {
 }
 
 .todo__popup {
-  padding: 20px;
+  padding: 40px 20px;
   border-radius: 8px;
   border: 2px solid var(--text-color);
   position: relative;
   background: #171717;
   width: 355px;
-  height: 810px;
+  height: 620px;
 }
 
 @media screen and (min-width: 768px) {
@@ -661,31 +661,10 @@ input::placeholder {
   border-radius: 10px;
 }
 
-.weather__card i {
+.weather__card {
   font-size: 1.5rem;
-  margin-right: 1rem;
 }
 
 .weather__card p {
   font-size: 14px;
-}
-
-@media (max-width: 936px) {
-  .container {
-    width: 90%;
-  }
-
-  .weather__header {
-    flex-direction: column;
-  }
-
-  .weather__units {
-    margin-top: 1rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .weather__info {
-    grid-template-columns: none;
-  }
 }
