@@ -7,26 +7,26 @@
   --accent-green: #5eb190;
   --accent-yellow: #c4c572;
   --accent-red: #b5615b;
-  --font-primary: "Helvetica Neue", sans-serif;
+  --font-primary: 'Helvetica Neue', sans-serif;
   --box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   --box-shadow-btn: 0px 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 @font-face {
-  font-family: "Helvetica Neue";
-  src: local("Helvetica"), local("Helvetica-Medium"),
-    url("../fonts/helvetica-medium.woff2") format("woff2"),
-    url("../fonts/helvetica-medium.woff") format("woff");
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica'), local('Helvetica-Medium'),
+    url('../fonts/helvetica-medium.woff2') format('woff2'),
+    url('../fonts/helvetica-medium.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Helvetica Neue";
-  src: local("Helvetica Bold"), local("Helvetica-Bold"),
-    url("../fonts/helvetica-bold.woff2") format("woff2"),
-    url("../fonts/helvetica-bold.woff") format("woff");
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Bold'), local('Helvetica-Bold'),
+    url('../fonts/helvetica-bold.woff2') format('woff2'),
+    url('../fonts/helvetica-bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -79,11 +79,17 @@ button {
 }
 
 .todo__logo {
-  width: 150px;
+  width: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .todo__logo {
+    width: 150px;
+  }
 }
 
 .todo__title {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 400;
   text-align: center;
   margin: 10px 0;
@@ -97,7 +103,7 @@ button {
 }
 
 .todo__slogan {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   text-align: center;
   margin: 10px 0;
@@ -112,9 +118,15 @@ button {
 
 .todo__container {
   background-color: var(--bg-app);
-  padding: 60px;
+  padding: 16px;
   box-shadow: var(--box-shadow);
   border-radius: 5px;
+}
+
+@media screen and (min-width: 768px) {
+  .todo__container {
+    padding: 60px;
+  }
 }
 
 .todo__header {
@@ -137,7 +149,6 @@ button {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 10px;
   padding: 0;
   margin-bottom: 20px;
@@ -147,16 +158,23 @@ button {
 @media screen and (min-width: 768px) {
   .todo__filter-list {
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 
 .todo__filter-btn {
-  font-size: 18px;
+  font-size: 16px;
   height: 40px;
   border-radius: 3px;
   background-color: var(--bg-items);
   transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
   padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .todo__filter-btn {
+    font-size: 18px;
+  }
 }
 
 .todo__filter-btn:hover {
@@ -188,7 +206,7 @@ button {
 }
 
 .todo__select-wrapper::after {
-  content: "▼";
+  content: '▼';
   font-size: 24px;
   color: var(--text-color);
   position: absolute;
@@ -390,7 +408,7 @@ button {
 }
 
 .todo__modal-box::after {
-  content: "▼";
+  content: '▼';
   font-size: 24px;
   color: var(--text-color);
   position: absolute;
