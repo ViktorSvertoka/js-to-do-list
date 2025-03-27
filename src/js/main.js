@@ -2,7 +2,8 @@ import { displayTasks, addTask, markTaskAsDone, removeTask } from './tasks.js';
 import { initFilters } from './filters.js';
 import { openEditModal, initModal } from './modal.js';
 import { getTasksFromLocalStorage } from './storage.js';
-import { displayCurrentDate } from './date.js'; // Импортируем функцию
+import { displayCurrentDate } from './date.js';
+import { initWeatherModal } from './popup.js';
 
 const form = document.querySelector('.todo__form');
 const list = document.querySelector('.todo__list');
@@ -33,5 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   displayTasks();
   initFilters();
   initModal();
-  displayCurrentDate(); // Вызов функции для отображения текущей даты
+  displayCurrentDate();
+  initWeatherModal();
 });
