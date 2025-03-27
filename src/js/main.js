@@ -4,6 +4,7 @@ import { openEditModal, initModal } from './modal.js';
 import { getTasksFromLocalStorage } from './storage.js';
 import { displayCurrentDate } from './date.js';
 import { initWeatherModal } from './popup.js';
+import { getWeather } from './weather.js';
 
 const form = document.querySelector('.todo__form');
 const list = document.querySelector('.todo__list');
@@ -36,4 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   displayCurrentDate();
   initWeatherModal();
+  getWeather;
 });
