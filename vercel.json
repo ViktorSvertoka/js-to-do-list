@@ -5,13 +5,16 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/src/index.html"
+      "destination": "/index.html"
     }
   ],
   "builds": [
     {
-      "src": "src/index.html",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
     }
   ]
 }
