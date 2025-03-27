@@ -541,12 +541,13 @@ button {
   border: 2px solid var(--text-color);
   position: relative;
   background: #171717;
-  width: 100vw;
-  height: 100vh;
+  width: 355px;
+  height: 810px;
 }
 
 @media screen and (min-width: 768px) {
   .todo__popup {
+    height: 640px;
     width: 620px;
     padding: 40px;
   }
