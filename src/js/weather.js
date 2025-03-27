@@ -1,9 +1,7 @@
-// state
 let currCity = 'Kyiv';
 let units = 'metric';
 const API_KEY = '64f60853740a1ee3ba20d0fb595c97d5';
 
-// Selectors
 const selectors = {
   city: '.weather__city',
   datetime: '.weather__datetime',
@@ -22,7 +20,6 @@ for (const key in selectors) {
   elements[key] = document.querySelector(selectors[key]);
 }
 
-// Event Listeners
 document.querySelector('.weather__search').addEventListener('submit', e => {
   e.preventDefault();
   const searchInput = document.querySelector('.weather__searchform');
@@ -51,7 +48,6 @@ document
     }
   });
 
-// Utility Functions
 function convertTimeStamp(timestamp, timezone) {
   const convertTimezone = timezone / 3600;
   return new Date(timestamp * 1000).toLocaleString('en-US', {
@@ -72,7 +68,6 @@ function convertCountryCode(country) {
   return new Intl.DisplayNames(['en'], { type: 'region' }).of(country);
 }
 
-// Fetch Weather Data
 async function getWeather() {
   try {
     const res = await fetch(
@@ -101,7 +96,6 @@ async function getWeather() {
   }
 }
 
-// Initialize weather on page load
 getWeather();
 
 export { getWeather };
