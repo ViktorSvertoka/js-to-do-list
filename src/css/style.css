@@ -108,6 +108,7 @@ button {
   font-weight: 400;
   text-align: center;
   margin: 10px 0;
+  color: var(--text-accent);
 }
 
 @media screen and (min-width: 768px) {
@@ -161,6 +162,11 @@ button {
   font-size: 20px;
   font-weight: 400;
   color: var(--text-accent);
+}
+
+.todo__weather-icon {
+  width: 60px;
+  cursor: pointer;
 }
 
 .todo__header {
