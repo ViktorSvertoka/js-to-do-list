@@ -5,11 +5,13 @@ export function initWeatherModal() {
 
   function openModal() {
     modalOverlay.classList.add('active');
+    document.body.classList.add('no-scroll');
     document.addEventListener('keydown', closeOnEscape);
   }
 
   function closeModal() {
     modalOverlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
     document.removeEventListener('keydown', closeOnEscape);
   }
 
