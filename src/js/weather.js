@@ -1,6 +1,6 @@
 let currCity = 'Kyiv';
 let units = 'metric';
-const API_KEY = '64f60853740a1ee3ba20d0fb595c97d5';
+const API_KEY = 'a59900c9878d74fdeb8c60d22b180d3c';
 
 const selectors = {
   city: '.weather__city',
