@@ -360,7 +360,7 @@ button {
 
 .todo__modal-content {
   position: fixed;
-  width: 620px;
+  width: 320px;
   height: 200px;
   background-color: var(--bg-app);
   padding: 20px;
@@ -610,6 +610,10 @@ button {
   .todo__item {
     width: 620px;
     gap: 30px;
+  }
+
+  .todo__modal-content {
+    width: 620px;
   }
 
   .todo__popup {
