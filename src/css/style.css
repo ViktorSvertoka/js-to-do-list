@@ -574,19 +574,6 @@ button {
   align-items: center;
 }
 
-input {
-  border: none;
-  background-color: var(--bg-inputs);
-  outline: none;
-  color: var(--text-color);
-  padding: 8px 40px;
-  border-radius: 5px;
-}
-
-input::placeholder {
-  color: var(--text-color);
-}
-
 .weather__search {
   position: relative;
 }
@@ -596,6 +583,20 @@ input::placeholder {
   left: 10px;
   top: 10px;
   font-size: 15px;
+  color: var(--text-color);
+}
+
+.weather__searchform {
+  font-size: 16px;
+  border: none;
+  background-color: var(--bg-inputs);
+  outline: none;
+  color: var(--text-color);
+  padding: 8px 40px;
+  border-radius: 5px;
+}
+
+.weather__searchform::placeholder {
   color: var(--text-color);
 }
 
