@@ -83,24 +83,11 @@ button {
   width: 50px;
 }
 
-@media screen and (min-width: 768px) {
-  .todo__logo {
-    width: 150px;
-  }
-}
-
 .todo__title {
   font-size: 32px;
   font-weight: 400;
   text-align: center;
   margin: 10px 0;
-}
-
-@media screen and (min-width: 768px) {
-  .todo__title {
-    font-size: 60px;
-    margin: 10px 0;
-  }
 }
 
 .todo__slogan {
@@ -111,24 +98,11 @@ button {
   color: var(--text-accent);
 }
 
-@media screen and (min-width: 768px) {
-  .todo__slogan {
-    font-size: 24px;
-    margin: 20px 0;
-  }
-}
-
 .todo__container {
   background-color: var(--bg-app);
   padding: 16px;
   box-shadow: var(--box-shadow);
   border-radius: 5px;
-}
-
-@media screen and (min-width: 768px) {
-  .todo__container {
-    padding: 60px;
-  }
 }
 
 .todo__date {
@@ -179,12 +153,6 @@ button {
   width: 100%;
 }
 
-@media screen and (min-width: 768px) {
-  .todo__nav {
-    width: 620px;
-  }
-}
-
 .todo__filter-list {
   list-style: none;
   display: flex;
@@ -195,13 +163,6 @@ button {
   padding-bottom: 20px;
 }
 
-@media screen and (min-width: 768px) {
-  .todo__filter-list {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
 .todo__filter-btn {
   font-size: 16px;
   height: 40px;
@@ -209,12 +170,6 @@ button {
   background-color: var(--bg-items);
   transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
   padding: 0 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .todo__filter-btn {
-    font-size: 18px;
-  }
 }
 
 .todo__filter-btn:hover {
@@ -227,12 +182,6 @@ button {
   flex-direction: column;
   width: 100%;
   gap: 10px;
-}
-
-@media screen and (min-width: 768px) {
-  .todo__form {
-    width: 620px;
-  }
 }
 
 .todo__wrap {
@@ -337,13 +286,6 @@ button {
   border-radius: 3px;
   padding: 10px;
   background-color: var(--bg-items);
-}
-
-@media screen and (min-width: 768px) {
-  .todo__item {
-    width: 620px;
-    gap: 30px;
-  }
 }
 
 .todo__svg {
@@ -543,14 +485,6 @@ button {
   height: 620px;
 }
 
-@media screen and (min-width: 768px) {
-  .todo__popup {
-    height: 640px;
-    width: 620px;
-    padding: 40px;
-  }
-}
-
 .todo__popup-close {
   position: absolute;
   top: 2px;
@@ -592,12 +526,6 @@ button {
   color: var(--text-color);
   padding: 10px 10px;
   border-radius: 5px;
-}
-
-@media screen and (min-width: 768px) {
-  .weather__searchform {
-    padding: 12px 40px 12px 20px;
-  }
 }
 
 .weather__searchform::placeholder {
@@ -677,4 +605,56 @@ button {
 .no-scroll {
   overflow: hidden;
   height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .todo__logo {
+    width: 150px;
+  }
+
+  .todo__title {
+    font-size: 60px;
+    margin: 10px 0;
+  }
+
+  .todo__slogan {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+
+  .todo__container {
+    padding: 60px;
+  }
+
+  .todo__nav {
+    width: 620px;
+  }
+
+  .todo__filter-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .todo__filter-btn {
+    font-size: 18px;
+  }
+
+  .todo__form {
+    width: 620px;
+  }
+
+  .todo__item {
+    width: 620px;
+    gap: 30px;
+  }
+
+  .todo__popup {
+    height: 640px;
+    width: 620px;
+    padding: 40px;
+  }
+
+  .weather__searchform {
+    padding: 12px 40px 12px 20px;
+  }
 }
