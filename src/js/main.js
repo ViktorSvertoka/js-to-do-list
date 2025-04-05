@@ -37,5 +37,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initModal();
   displayCurrentDate();
   initWeatherModal();
-  getWeather;
+  getWeather();
 });
