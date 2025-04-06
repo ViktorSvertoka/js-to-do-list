@@ -83,7 +83,7 @@ async function getWeather() {
     elements.datetime.textContent = convertTimeStamp(data.dt, data.timezone);
     elements.forecast.innerHTML = `<p>${data.weather[0].main}</p>`;
     elements.temperature.innerHTML = `${data.main.temp.toFixed()}&#176;`;
-    elements.icon.innerHTML = `<img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" alt="Weather Icon">`;
+    elements.icon.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" alt="Weather Icon">`;
     elements.minmax.innerHTML = `<p>Min: ${data.main.temp_min.toFixed()}</p><p>Max: ${data.main.temp_max.toFixed()}</p>`;
     elements.realfeel.textContent = `${data.main.feels_like.toFixed()}\u00B0`;
     elements.humidity.textContent = `${data.main.humidity}%`;
