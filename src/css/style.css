@@ -177,6 +177,10 @@ button {
   box-shadow: var(--box-shadow-btn);
 }
 
+.todo__filter-btn.active {
+  background-color: var(--bg-color);
+}
+
 .todo__form {
   display: flex;
   flex-direction: column;

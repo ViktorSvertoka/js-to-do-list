@@ -1,11 +1,21 @@
-import { displayTasks } from "./tasks.js";
+import { displayTasks } from './tasks.js';
 
 export function initFilters() {
-  document.querySelectorAll(".todo__filter-btn").forEach((button) => {
-    button.addEventListener("click", () => {
+  const buttons = document.querySelectorAll('.todo__filter-btn');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      button.classList.add('active');
+
       const filterText = button.textContent.trim();
-      console.log("Filter applied:", filterText);
       displayTasks(filterText);
     });
   });
+
+  const defaultButton = Array.from(buttons).find(
+    btn => btn.textContent.trim() === 'All'
+  );
+  if (defaultButton) defaultButton.classList.add('active');
 }
