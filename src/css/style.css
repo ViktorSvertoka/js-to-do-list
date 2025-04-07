@@ -330,7 +330,9 @@ button {
 }
 
 .todo__text--done {
-  text-decoration: line-through var(--bg-items) 3px;
+  text-decoration-line: line-through;
+  text-decoration-color: var(--bg-items);
+  text-decoration-thickness: 3px;
 }
 
 .todo__group {
