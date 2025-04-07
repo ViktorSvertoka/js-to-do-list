@@ -1,4 +1,4 @@
-let currCity = 'Kyiv';
+let currCity = '';
 let units = 'metric';
 const API_KEY = 'a59900c9878d74fdeb8c60d22b180d3c';
 
@@ -23,9 +23,10 @@ for (const key in selectors) {
 document.querySelector('.weather__search').addEventListener('submit', e => {
   e.preventDefault();
   const searchInput = document.querySelector('.weather__searchform');
-  if (searchInput.value.trim()) {
-    currCity = searchInput.value.trim();
-    getWeather();
+  const input = searchInput.value.trim();
+  if (input) {
+    currCity = input;
+    getWeatherByCity();
     searchInput.value = '';
   }
 });
@@ -35,7 +36,7 @@ document
   .addEventListener('click', () => {
     if (units !== 'metric') {
       units = 'metric';
-      getWeather();
+      updateWeather();
     }
   });
 
@@ -44,7 +45,7 @@ document
   .addEventListener('click', () => {
     if (units !== 'imperial') {
       units = 'imperial';
-      getWeather();
+      updateWeather();
     }
   });
 
@@ -68,34 +69,85 @@ function convertCountryCode(country) {
   return new Intl.DisplayNames(['en'], { type: 'region' }).of(country);
 }
 
-async function getWeather() {
+async function getCityName(lat, lon) {
+  const res = await fetch(
+    `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`
+  );
+  const data = await res.json();
+  return data[0]?.name || '';
+}
+
+async function renderWeather(data) {
+  elements.city.textContent = `${data.name}, ${convertCountryCode(
+    data.sys.country
+  )}`;
+  elements.datetime.textContent = convertTimeStamp(data.dt, data.timezone);
+  elements.forecast.innerHTML = `<p>${data.weather[0].main}</p>`;
+  elements.temperature.innerHTML = `${data.main.temp.toFixed()}&#176;`;
+  elements.icon.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" alt="Weather Icon">`;
+  elements.minmax.innerHTML = `<p>Min: ${data.main.temp_min.toFixed()}</p><p>Max: ${data.main.temp_max.toFixed()}</p>`;
+  elements.realfeel.textContent = `${data.main.feels_like.toFixed()}\u00B0`;
+  elements.humidity.textContent = `${data.main.humidity}%`;
+  elements.wind.textContent = `${data.wind.speed} ${
+    units === 'imperial' ? 'mph' : 'm/s'
+  }`;
+  elements.pressure.textContent = `${data.main.pressure} hPa`;
+}
+
+async function getWeatherByCity() {
   try {
     const res = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${currCity}&appid=${API_KEY}&units=${units}`
     );
     const data = await res.json();
-
     if (data.cod !== 200) throw new Error(data.message);
-
-    elements.city.textContent = `${data.name}, ${convertCountryCode(
-      data.sys.country
-    )}`;
-    elements.datetime.textContent = convertTimeStamp(data.dt, data.timezone);
-    elements.forecast.innerHTML = `<p>${data.weather[0].main}</p>`;
-    elements.temperature.innerHTML = `${data.main.temp.toFixed()}&#176;`;
-    elements.icon.innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png" alt="Weather Icon">`;
-    elements.minmax.innerHTML = `<p>Min: ${data.main.temp_min.toFixed()}</p><p>Max: ${data.main.temp_max.toFixed()}</p>`;
-    elements.realfeel.textContent = `${data.main.feels_like.toFixed()}\u00B0`;
-    elements.humidity.textContent = `${data.main.humidity}%`;
-    elements.wind.textContent = `${data.wind.speed} ${
-      units === 'imperial' ? 'mph' : 'm/s'
-    }`;
-    elements.pressure.textContent = `${data.main.pressure} hPa`;
+    renderWeather(data);
   } catch (error) {
-    console.error('Error fetching weather data:', error.message);
+    console.error('Error fetching weather by city:', error.message);
   }
 }
 
-getWeather();
+async function getWeatherByCoords(lat, lon) {
+  try {
+    const cityName = await getCityName(lat, lon);
+    if (!cityName) throw new Error('City not found for coordinates');
+    currCity = cityName;
 
-export { getWeather };
+    const res = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}`
+    );
+    const data = await res.json();
+    if (data.cod !== 200) throw new Error(data.message);
+    renderWeather(data);
+  } catch (error) {
+    console.error('Error fetching weather by coordinates:', error.message);
+  }
+}
+
+function getWeatherByLocation() {
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const { latitude, longitude } = pos.coords;
+        getWeatherByCoords(latitude, longitude);
+      },
+      err => {
+        console.warn('Geolocation error:', err.message);
+      }
+    );
+  } else {
+    console.warn('Geolocation not supported');
+  }
+}
+
+function updateWeather() {
+  if (currCity) {
+    getWeatherByCity();
+  } else {
+    getWeatherByLocation();
+  }
+}
+
+getWeatherByLocation();
+
+export { getWeatherByCity };
