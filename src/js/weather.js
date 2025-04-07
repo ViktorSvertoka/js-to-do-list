@@ -24,10 +24,13 @@ document.querySelector('.weather__search').addEventListener('submit', e => {
   e.preventDefault();
   const searchInput = document.querySelector('.weather__searchform');
   const input = searchInput.value.trim();
+
   if (input) {
     currCity = input;
     getWeatherByCity();
     searchInput.value = '';
+  } else {
+    alert('Please enter a city name');
   }
 });
 
@@ -50,7 +53,7 @@ document
   });
 
 function convertTimeStamp(timestamp, timezone) {
-  const convertTimezone = timezone / 3600;
+  const offset = timezone / 3600;
   return new Date(timestamp * 1000).toLocaleString('en-US', {
     weekday: 'long',
     day: 'numeric',
@@ -58,10 +61,8 @@ function convertTimeStamp(timestamp, timezone) {
     year: 'numeric',
     hour: 'numeric',
     minute: 'numeric',
-    timeZone: `Etc/GMT${convertTimezone >= 0 ? '-' : '+'}${Math.abs(
-      convertTimezone
-    )}`,
     hour12: true,
+    timeZone: `Etc/GMT${offset >= 0 ? '-' : '+'}${Math.abs(offset)}`,
   });
 }
 
@@ -70,14 +71,18 @@ function convertCountryCode(country) {
 }
 
 async function getCityName(lat, lon) {
-  const res = await fetch(
-    `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`
-  );
-  const data = await res.json();
-  return data[0]?.name || '';
+  try {
+    const res = await fetch(
+      `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${API_KEY}`
+    );
+    const data = await res.json();
+    return data[0]?.name || '';
+  } catch {
+    return '';
+  }
 }
 
-async function renderWeather(data) {
+function renderWeather(data) {
   elements.city.textContent = `${data.name}, ${convertCountryCode(
     data.sys.country
   )}`;
@@ -95,12 +100,17 @@ async function renderWeather(data) {
 }
 
 async function getWeatherByCity() {
+  if (!currCity) return;
+
   try {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${currCity}&appid=${API_KEY}&units=${units}`
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
+        currCity
+      )}&appid=${API_KEY}&units=${units}`
     );
+    if (!res.ok) throw new Error('City not found');
+
     const data = await res.json();
-    if (data.cod !== 200) throw new Error(data.message);
     renderWeather(data);
   } catch (error) {
     console.error('Error fetching weather by city:', error.message);
@@ -111,14 +121,9 @@ async function getWeatherByCoords(lat, lon) {
   try {
     const cityName = await getCityName(lat, lon);
     if (!cityName) throw new Error('City not found for coordinates');
-    currCity = cityName;
 
-    const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=${units}`
-    );
-    const data = await res.json();
-    if (data.cod !== 200) throw new Error(data.message);
-    renderWeather(data);
+    currCity = cityName;
+    await getWeatherByCity();
   } catch (error) {
     console.error('Error fetching weather by coordinates:', error.message);
   }
